@@ -62,10 +62,10 @@ const Footer = () => {
             
             {/* Social Icons */}
             <div className="flex gap-3 mt-6">
-              <a href="https://instagram.com/rumivetjr" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-accent-foreground/10 flex items-center justify-center hover:bg-secondary hover:text-accent transition-all duration-300" aria-label="Instagram">
+              <a href="https://www.instagram.com/rumivet.jr/" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-accent-foreground/10 flex items-center justify-center hover:bg-secondary hover:text-accent transition-all duration-300" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
-              <a href="https://linkedin.com/company/rumivetjr" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-accent-foreground/10 flex items-center justify-center hover:bg-secondary hover:text-accent transition-all duration-300" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/rumivet-empresa-junior/" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-accent-foreground/10 flex items-center justify-center hover:bg-secondary hover:text-accent transition-all duration-300" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
             </div>

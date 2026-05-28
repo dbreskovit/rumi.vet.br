@@ -1,6 +1,8 @@
 import { Target, Eye, Heart, Award, GraduationCap, History, Building2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import equipe from "@/assets/team/equipe.jpg";
+import image from "@/assets/team/image.png";  
 
 const values = [
   {
@@ -90,7 +92,7 @@ const About = () => {
           <div className="relative">
             <div className="aspect-[4/3] rounded-3xl overflow-hidden">
               <img
-                src="src\assets\team\equipe.jpg"
+                src={equipe}
                 alt="Equipe Rumivet Jr"
                 className="w-full h-full object-cover"
               />
@@ -113,7 +115,7 @@ const About = () => {
                 {/* Image */}
                 <div className="aspect-[4/3] lg:aspect-auto relative">
                   <img
-                    src="src\assets\team\image.png"
+                    src={image}
                     alt="Equipe Rumivet Jr trabalhando no campo"
                     className="w-full h-full object-cover"
                   />

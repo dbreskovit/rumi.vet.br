@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    /* Rumivet Jr Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 152 56% 21%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 152 56% 21%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 152 56% 21%;
+
+    /* Primary: #00763d */
+    --primary: 152 100% 23%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: #b0e1aa */
+    --secondary: 115 48% 77%;
+    --secondary-foreground: 152 56% 21%;
+
+    --muted: 115 30% 94%;
+    --muted-foreground: 152 40% 35%;
+
+    /* Accent: #17563d */
+    --accent: 152 56% 21%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 115 20% 88%;
+    --input: 115 20% 90%;
+    --ring: 152 100% 23%;
+
+    --radius: 0.75rem;
+
+    /* Custom */
+    --gradient-start: 152 100% 23%;
+    --gradient-end: 152 56% 21%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 152 56% 21%;
+    --sidebar-primary: 152 100% 23%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 115 48% 77%;
+    --sidebar-accent-foreground: 152 56% 21%;
+    --sidebar-border: 115 30% 80%;
+    --sidebar-ring: 152 100% 23%;
+  }
+
+  .dark {
+    --background: 152 56% 6%;
+    --foreground: 115 48% 95%;
+
+    --card: 152 50% 10%;
+    --card-foreground: 115 48% 95%;
+
+    --popover: 152 50% 10%;
+    --popover-foreground: 115 48% 95%;
+
+    --primary: 152 80% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 152 40% 15%;
+    --secondary-foreground: 115 48% 90%;
+
+    --muted: 152 30% 12%;
+    --muted-foreground: 115 30% 60%;
+
+    --accent: 115 48% 77%;
+    --accent-foreground: 152 56% 21%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 152 30% 18%;
+    --input: 152 30% 18%;
+    --ring: 152 80% 45%;
+    --sidebar-background: 152 56% 8%;
+    --sidebar-foreground: 115 48% 95%;
+    --sidebar-primary: 152 80% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 152 40% 15%;
+    --sidebar-accent-foreground: 115 48% 90%;
+    --sidebar-border: 152 30% 18%;
+    --sidebar-ring: 152 80% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-background/80 backdrop-blur-xl border border-border/50;
+  }
+  
+  .glass-dark {
+    @apply bg-accent/90 backdrop-blur-xl border border-accent-foreground/10;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(152, 100%, 23%) 0%, hsl(152, 80%, 35%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

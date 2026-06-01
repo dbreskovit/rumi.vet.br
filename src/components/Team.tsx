@@ -33,7 +33,7 @@ const teamMembers = [
     photo: member4,
   },
   {
-    name: "Luiza Picaloto do Nascimento",
+    name: "Luiza Picoloto do Nascimento",
     role: "Diretora Comunicação e Marketing",
     photo: member5,
   },

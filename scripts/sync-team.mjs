@@ -285,8 +285,13 @@ async function main() {
     usedSlugs.set(baseSlug, seen);
     const slug = seen === 1 ? baseSlug : `${baseSlug}-${seen}`;
 
-    if (photoUrl === "" || photoUrl.startsWith(PUBLIC_PREFIX + "/")) {
-      members.push({ name, role, slug, photoUrl: null, lineNumber });
+    if (photoUrl.startsWith(PUBLIC_PREFIX + "/")) {
+      members.push({ name, role, slug, photoUrl: null, arquivoFixo: photoUrl.split("/").pop(), lineNumber });
+      return;
+    }
+
+    if (photoUrl === "") {
+      members.push({ name, role, slug, photoUrl: null, arquivoFixo: null, lineNumber });
       return;
     }
 
@@ -318,10 +323,23 @@ async function main() {
 
   for (const member of members) {
     if (member.photoUrl === null) {
+      if (member.arquivoFixo) {
+        if (!arquivosNaPasta.includes(member.arquivoFixo)) {
+          semFoto.push(
+            `${member.name} (linha ${member.lineNumber}): a coluna Foto aponta para ${PUBLIC_PREFIX}/${member.arquivoFixo}, ` +
+              `que nao existe no repositorio. Deixe a celula vazia ou preencha com a URL de uma imagem.`
+          );
+          continue;
+        }
+        prontos.push({ member, processed: null, fileName: member.arquivoFixo });
+        continue;
+      }
+
       const existente = arquivosNaPasta.find((file) => file.replace(/\.[^.]+$/, "") === member.slug);
       if (!existente) {
         semFoto.push(
-          `${member.name} (linha ${member.lineNumber}): sem foto no repositorio, preencha a coluna Foto com a URL da imagem`
+          `${member.name} (linha ${member.lineNumber}): sem foto no repositorio. ` +
+            `Preencha a coluna Foto com a URL de uma imagem, ou com ${PUBLIC_PREFIX}/<arquivo> de uma foto ja publicada.`
         );
         continue;
       }

@@ -1,0 +1,59 @@
+name: Sincronizar equipe
+
+on:
+  repository_dispatch:
+    types: [sync-team]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-team
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Instalar sharp
+        run: npm install --no-save --no-audit --no-fund sharp
+
+      - name: Sincronizar com a planilha
+        env:
+          TEAM_SHEET_CSV_URL: ${{ secrets.TEAM_SHEET_CSV_URL }}
+        run: node scripts/sync-team.mjs
+
+      - name: Commitar alteracoes
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain src/data/team.json public/team)" ]; then
+            echo "Nenhuma alteracao na equipe - nada a commitar."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/team.json public/team
+          git commit -m "chore(equipe): sincroniza participantes com a planilha"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Resumo
+        run: |
+          if [ "${{ steps.commit.outputs.changed }}" = "true" ]; then
+            echo "### Equipe atualizada :white_check_mark:" >> "$GITHUB_STEP_SUMMARY"
+            echo "O commit foi enviado para \`main\` e a Vercel vai publicar o deploy." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### Nada mudou :zzz:" >> "$GITHUB_STEP_SUMMARY"
+            echo "A planilha esta igual ao que ja esta publicado no site." >> "$GITHUB_STEP_SUMMARY"
+          fi

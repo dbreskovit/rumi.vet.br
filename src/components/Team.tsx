@@ -1,58 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 
-// Import team photos
-import member1 from "@/assets/team/member-1.jpg";
-import member2 from "@/assets/team/member-2.jpg";
-import member3 from "@/assets/team/member-3.jpg";
-import member4 from "@/assets/team/member-4.jpg";
-import member5 from "@/assets/team/member-5.jpg";
-import member6 from "@/assets/team/member-6.jpg";
-import member7 from "@/assets/team/member-7.jpg";
-import member8 from "@/assets/team/member-8.jpg";
-
-const teamMembers = [
-  {
-    name: "Alessandra Lapazini",
-    role: "Diretora",
-    photo: member1,
-  },
-  {
-    name: "Maiara Stormoski Gattenes",
-    role: "Diretora Gestão de Pessoas",
-    photo: member2,
-  },
-  {
-    name: "Micheli Miola",
-    role: "Diretora de Projetos",
-    photo: member3,
-  },
-  {
-    name: "Bernardo Girotto",
-    role: "Diretor Comercial",
-    photo: member4,
-  },
-  {
-    name: "Luiza Picoloto do Nascimento",
-    role: "Diretora Comunicação e Marketing",
-    photo: member5,
-  },
-  {
-    name: "Andressa Favin",
-    role: "Diretora Administrativo Financeiro",
-    photo: member6,
-  },
-  {
-    name: "Mateus Franco Franceschi",
-    role: "Assessor Comercial",
-    photo: member7,
-  },
-  {
-    name: "Iane Pertuzatti Da Rosa ",
-    role: "Assessora de Projetos",
-    photo: member8,
-  },
-];
+import teamMembers from "@/data/team.json";
 
 const Team = () => {
   return (
@@ -96,6 +45,10 @@ const Team = () => {
                     <img
                       src={member.photo}
                       alt={member.name}
+                      width={512}
+                      height={512}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
                     />
                   </div>

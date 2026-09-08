@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Alessandra Lapazini",
+    "role": "Diretora",
+    "photo": "/team/alessandra-lapazini.webp"
+  },
+  {
+    "name": "Maiara Stormoski Gattenes",
+    "role": "Diretora Gestão de Pessoas",
+    "photo": "/team/maiara-stormoski-gattenes.webp"
+  },
+  {
+    "name": "Micheli Miola",
+    "role": "Diretora de Projetos",
+    "photo": "/team/micheli-miola.webp"
+  },
+  {
+    "name": "Bernardo Girotto",
+    "role": "Diretor Comercial",
+    "photo": "/team/bernardo-girotto.webp"
+  },
+  {
+    "name": "Luiza Picoloto do Nascimento",
+    "role": "Diretora Comunicação e Marketing",
+    "photo": "/team/luiza-picoloto-do-nascimento.webp"
+  },
+  {
+    "name": "Andressa Favin",
+    "role": "Diretora Administrativo Financeiro",
+    "photo": "/team/andressa-favin.webp"
+  },
+  {
+    "name": "Mateus Franco Franceschi",
+    "role": "Assessor Comercial",
+    "photo": "/team/mateus-franco-franceschi.webp"
+  },
+  {
+    "name": "Iane Pertuzatti Da Rosa",
+    "role": "Assessora de Projetos",
+    "photo": "/team/iane-pertuzatti-da-rosa.webp"
+  }
+]
